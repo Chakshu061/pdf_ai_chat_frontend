@@ -1,0 +1,605 @@
+/* Import the fonts */
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Playpen+Sans+Hebrew:wght@100..800&family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Mea+Culpa&family=Playpen+Sans+Hebrew:wght@100..800&family=Sofia&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+  font-family: 'Playpen Sans Hebrew', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Background */
+.app-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: #5b6ccb; /* purple background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container */
+.macos-container {
+  width: 97%;
+  height: 95%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Top bar */
+.top-bar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #f9f9f9;
+
+  /* Add shadow below */
+  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.1);
+
+  /* Ensure it overlaps content */
+  position: relative;
+  z-index: 1;
+}
+
+.top-bar-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.top-bar-buttons div {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.btn-red { background: #ff5f57; }
+.btn-yellow { background: #ffbd2e; }
+.btn-green { background: #28c840; }
+
+.top-bar-title {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 24px;
+  background-color: #e9f2fb;
+  color: #313131;
+
+  /* Remove margin-top */
+  margin-top: 0;
+
+  /* Gridlines effect with bluish color */
+  background-image: 
+    linear-gradient(to right, rgba(125, 148, 248, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(137, 157, 244, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px; /* adjust spacing between gridlines */
+}
+
+.content h1 {
+  font-family: 'Sofia', 'Mea Culpa', cursive;
+  font-size: 2rem; /* Optional: Adjust font size */
+  color: #575758; 
+  align-items: center;
+  text-align: center;
+  font-weight: 900;
+}
+
+/* Bottom bar */
+.bottom-bar {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-top: 1px solid #e5e5e5;
+  background: #f9f9f9;
+
+  /* Add shadow above */
+  box-shadow: 0 -5px 6px rgba(0, 0, 0, 0.1);
+
+  /* Ensure it overlaps content */
+  position: relative;
+  z-index: 1;
+}
+
+.bottom-bar-title {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+
+.pdf-wrapper {
+  width: 100%;
+  height: 100%;
+  border: 3px dashed #3b82f6;
+  border-radius: 6px;
+  padding: 8px;          
+  box-sizing: border-box; 
+}
+
+/* Inner striped box (your PDFUpload) */
+.pdf-upload {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 4px;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* lined paper effect */
+  background-image: 
+    repeating-linear-gradient(to bottom, transparent, transparent 29px, rgba(59,130,246,0.1) 30px);
+  background-size: 100% 30px;
+
+  /* striped border */
+  border: 5px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    white 0 5px,
+    #3b82f6 8px 19px
+  ) 10;
+}
+
+
+.pdf-upload:hover {
+  background: #edf3f8; /* light blue hover */
+}
+
+.pdf-heading {
+  font-size: 18px;
+  color: #272828; /* stronger blue */
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.pdf-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pdf-icon img {
+  width: 150px; 
+  height: auto; 
+  max-height: 150px; 
+}
+
+.pdf-icon img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+
+/* Summary container */
+.summary-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: 'Delius', cursive;
+  border: 3px dashed #3b82f6;
+
+  /* rulings effect */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 22px,
+    rgba(59,130,246,0.2) 23px
+  );
+  background-size: 100% 23px;
+}
+
+/* Header row for title + copy button */
+.summary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px 0 24px;
+}
+
+/* Title */
+.summary-header h2 {
+  font-size: 22px;
+  font-weight: 500;
+  font-family: 'Playpen Sans Hebrew', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-decoration: underline;
+  text-decoration-color: #3b82f6;
+  text-underline-offset: 4px;
+  margin: 0;
+}
+
+/* Copy button */
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #3b82f6;
+  transition: transform 0.2s ease;
+}
+
+.copy-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Copy feedback text */
+.copy-feedback {
+  font-size: 12px;
+  color: #10b981; /* green success */
+  margin-left: 8px;
+}
+
+
+/* Content area */
+.summary-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  color: #313030;
+}
+
+.summary-content h2 {
+  font-size: 22px;
+  font-weight: 500;
+  font-family: 'Playpen Sans Hebrew', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin-bottom: 12px;
+  text-decoration: underline;
+  text-decoration-color: #3b82f6; /* optional: make it blue */
+  text-underline-offset: 4px; 
+}
+
+.summary-content p {
+  margin: 15px 0;
+  font-size: 13px;
+  line-height: 1.2;
+  font-family: 'Playpen Sans Hebrew', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 450;
+}
+
+/* FAQ container */
+.faq-container {
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 3px dashed #3b82f6;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  font-family: 'Playpen Sans Hebrew', sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  /* rulings effect */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 22px,
+    rgba(59,130,246,0.15) 23px
+  );
+  background-size: 100% 23px;
+}
+
+/* Header with title + input */
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  margin-bottom: 12px;
+}
+
+.faq-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: underline;
+  text-decoration-color: #3b82f6;
+  text-underline-offset: 4px;
+}
+
+.faq-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.faq-control input {
+  width: 50px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+/* FAQ list (scrollable, hidden scrollbar) */
+.faq-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.faq-list::-webkit-scrollbar {
+  display: none;
+}
+.faq-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* FAQ item */
+.faq-item {
+  padding: 8px;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+}
+
+.faq-item:hover {
+  background: #f8f9fa;
+  margin: 0 -8px;
+  padding: 8px 8px;
+}
+
+.faq-question {
+  font-size: 16px;
+  font-weight: 600;
+  color: #265298;
+  margin-bottom: 6px;
+}
+
+.faq-answer {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Scroll-to-top button */
+.scroll-top-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 2s ease;
+}
+
+.scroll-top-btn:hover {
+  background: #2563eb;
+}
+
+
+/* Chat container */
+.chat-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 3px dashed #3b82f6;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  font-family: 'Playpen Sans Hebrew', sans-serif;
+
+  /* rulings */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 22px,
+    rgba(59,130,246,0.15) 23px
+  );
+  background-size: 100% 23px;
+}
+
+/* Header */
+.chat-header {
+  padding: 12px 16px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.chat-header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: underline;
+  text-decoration-color: #3b82f6;
+  text-underline-offset: 4px;
+}
+
+/* Messages area */
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.chat-messages::-webkit-scrollbar {
+  display: none;
+}
+.chat-messages {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Message bubbles */
+.chat-message {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  line-height: 1.3;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.chat-message.user {
+  background: #3b82f6;
+  color: white;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-message.bot {
+  background: linear-gradient(135deg, #d9dff7 0%, #f0f8ff 100%);
+  color: #333;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+/* Input */
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 2px solid #e5e7eb;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.chat-input input:focus {
+  border-color: #3b82f6;
+}
+
+.chat-input button {
+  margin-left: 8px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.chat-input button:hover {
+  background: #2563eb;
+}
+
+.history-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 3px dashed #3b82f6;
+  background: #ffffff;
+
+  /* rulings background */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 22px,
+    rgba(59, 130, 246, 0.15) 23px
+  );
+  background-size: 100% 23px;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Playpen Sans Hebrew', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.history-header {
+  padding: 12px 16px;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.history-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #3b82f6;
+  text-underline-offset: 4px;
+  margin: 0;
+}
+
+.history-list {
+  flex: 1;
+  padding: 12px;
+  overflow-y: auto;
+  /* scrollbar styling */
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: #3b82f6 transparent;
+}
+
+.history-list::-webkit-scrollbar {
+  width: 6px; /* thin scrollbar */
+}
+
+.history-list::-webkit-scrollbar-track {
+  background: transparent; /* no track background */
+}
+
+.history-list::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* blue thumb */
+  border-radius: 10px;       /* rounded edges */
+}
+
+.history-item {
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: background 0.2s;
+}
+
+.history-item:hover {
+  background: #f8f9fa;
+}
+
+.history-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.history-date {
+  font-size: 12px;
+  color: #777;
+}
