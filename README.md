@@ -9,6 +9,9 @@ This ensures **data privacy, low latency, and zero external dependencies**.
 
 ---
 
+## Demo (Screenshot)
+![alt text](<Screenshot 2025-09-09 at 5.11.07 PM.png>)
+
 ## 🚀 Features
 - 📄 **Upload PDFs** and instantly parse them.
 - ✂️ **Chunking + FAISS embeddings** for efficient semantic retrieval.
